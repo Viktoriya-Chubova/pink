@@ -30,6 +30,8 @@ import {HeaderData, FooterData} from '@/data/data.dummy'
 </script>
 
 <style lang="scss" scoped>
+@import './assets/layouts/index.scss';
+
   .app{    
     height: 100vh; //vh-высотa области просмотра
     display: flex;

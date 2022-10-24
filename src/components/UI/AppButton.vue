@@ -10,14 +10,15 @@
 
 <script>
    export default {
-      
+      name: 'app-button'
    }
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/layouts/index.scss";
+@import "@/assets/layouts/index.scss";
 .btn{
    border: 3px solid #FFFFFF;
+   width: 300px;
    border-radius: 29px;
    color: $white;
    background-color: rgba(0,0,0,0);

@@ -4,8 +4,16 @@
       <div class="footer__content">
         <div class="footer__logo">
           <a href="/">
-            <img class="footer__logo_desktop" src="../assets/images/logo/logoDesktopFooter.svg" alt="" />
-            <img class="footer__logo_tablet" src="../assets/images/logo/logoTabletFooter.svg" alt="" />
+            <img
+              class="footer__logo_desktop"
+              src="../assets/images/logo/logoDesktopFooter.svg"
+              alt=""
+            />
+            <img
+              class="footer__logo_tablet"
+              src="../assets/images/logo/logoTabletFooter.svg"
+              alt=""
+            />
           </a>
         </div>
         <div class="footer__links">
@@ -37,7 +45,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/layouts/index.scss";
+@import "@/assets/layouts/index.scss";
 .footer {
   &__content {
     display: flex;
@@ -58,6 +66,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     &:hover {
       border: 3px solid $darkblue;
     }
@@ -68,30 +77,45 @@ export default {
 
   &__developed {
     display: flex;
+    align-items: center;
   }
   &__text {
     margin-right: 13px;
   }
 
-  &__logo{
-
-   &_desktop{
-
-   }
-   &_tablet{
+  &__logo {
+    &_tablet {
       display: none;
-   }
-   @media screen and (max-width: 767.98px){
-
-      &_desktop{
-         display: none;
+    }
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .footer {
+    &__content {
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    &__logo {
+      &_desktop {
+        display: none;
       }
 
       &_tablet {
-         display: block;
+        display: block;
       }
-}
+    }
+    &__text {
+      font-size: 14px;
+    }
   }
 }
-
+@media screen and (max-width: 479.98px) {
+  .footer {
+    &__content {
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+}
 </style>
