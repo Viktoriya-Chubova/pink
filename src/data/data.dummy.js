@@ -111,3 +111,65 @@ export const TariffData = [
    
 ]
 
+
+export const FormData = {
+   fio:[
+      {
+         id: 1,
+         name: 'ФАМИЛИЯ:',
+         placeholder: 'Укажите фамилию *'     
+      },
+      {
+         id: 2,
+         name: 'ИМЯ:',
+         placeholder: 'Введите ваше имя *'          
+      },
+      {
+         id: 3,
+         name: 'ОТЧЕСТВО:',
+         placeholder: 'Ну и отчество тоже'           
+      },
+   ],
+   app: [
+      {
+         id: 1,
+         name: 'Pink для iOS'      
+      },
+      {
+         id: 2,
+         name: 'Pink на Android'      
+      },
+      {
+         id: 3,
+         name: 'Windows Phone'      
+      },
+   ],
+   progress: [
+      {
+         id: 1,
+         name: 'Сделал селфи с акулой'      
+      },
+      {
+         id: 2,
+         name: 'Видел Чака Норриса'      
+      },
+      {
+         id: 3,
+         name: 'Удержал башню'      
+      },
+      {
+         id: 4,
+         name: 'Обгорел на пляже'      
+      },
+      {
+         id: 5,
+         name: 'Накупил сувениров'      
+      },
+      {
+         id: 6,
+         name: 'Разгромил отель'      
+      },
+   ]
+   
+     
+}

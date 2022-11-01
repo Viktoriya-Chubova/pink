@@ -1,13 +1,17 @@
 <template>
+  
   <div class="navbar">
     <div class="container">
-      <div class="navbar__content">
-        <logo-header></logo-header>
-        <ul class="navbar__list">
-          <li class="navbar__item" v-for="item in data" :key="item">
-            <router-link href="" :to="item.path">{{ item.name }}</router-link>
-          </li>
-        </ul>
+      <div class="navbar__wrapper">
+        <div class="navbar__content">
+          <logo-header></logo-header>
+          <ul class="navbar__list">
+            <li class="navbar__item" v-for="item in data" :key="item">
+              <router-link href="" :to="item.path">{{ item.name }}</router-link>
+            </li>
+          </ul>
+          
+        </div>
         <div>
           <div class="burgermenu" @click="show = !show">
             <a href="#" type="button" class="burgermenu__burger" v-if="!show">
@@ -74,16 +78,27 @@ export default {
   position: absolute;
   width: 100%;
   z-index: 100;
-  height: 110px;
-  padding: 0;
+  
+  display: block;
+  padding: 27px 0 43px;
   @media screen and (max-width: 479.98px) {
-    height: 69px;
+    padding: 10px 0 12px;
   }
-
+  &__wrapper{
+    @media screen and (max-width: 767.98px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+  }
+  }
+  .container{
+    display: block;
+  }
   &__content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
+    
   }
   &__logo {
     position: relative;
@@ -132,9 +147,6 @@ export default {
   border-bottom: 2px solid $white;
   padding-bottom: 10px;
 }
-.container {
-  display: block;
-}
 
 .burgermenu {
   display: none;
@@ -142,7 +154,7 @@ export default {
   @media screen and (max-width: 767.98px) {
     display: block;
   }
-
+  
   &__burger {
     display: flex;
     justify-content: flex-end;
@@ -188,4 +200,5 @@ export default {
 .burger-leave-to {
   opacity: 0;
 }
+
 </style>

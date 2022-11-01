@@ -1,7 +1,7 @@
 <template>
    <div class="logo">
-      <img class="logo__desktop" src="../assets/images/logo/logoDesktopHeader.svg" alt="">
-      <img class="logo__tablet" src="../assets/images/logo/logoTabletHeader.svg" alt="">
+      <a href="/"><img class="logo__desktop" src="../assets/images/logo/logoDesktopHeader.svg" alt=""></a>
+      <a href="/"><img class="logo__tablet" src="../assets/images/logo/logoTabletHeader.svg" alt=""></a>
    </div>
 </template>
 
