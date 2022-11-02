@@ -113,23 +113,6 @@ export const TariffData = [
 
 
 export const FormData = {
-   fio:[
-      {
-         id: 1,
-         name: 'ФАМИЛИЯ:',
-         placeholder: 'Укажите фамилию *'     
-      },
-      {
-         id: 2,
-         name: 'ИМЯ:',
-         placeholder: 'Введите ваше имя *'          
-      },
-      {
-         id: 3,
-         name: 'ОТЧЕСТВО:',
-         placeholder: 'Ну и отчество тоже'           
-      },
-   ],
    app: [
       {
          id: 1,

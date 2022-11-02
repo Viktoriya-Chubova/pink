@@ -13,7 +13,7 @@
 
 <script>
    export default {
-      name: 'app-button',
+      name: 'u-button',
       props: {
          color: {
             type: String,

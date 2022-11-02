@@ -106,12 +106,13 @@ export default {
       margin: 0;
       font-size: 18px;
       margin-bottom: 24px;
-      margin-top: 46px;
+
     }
 
     &__text {
-      padding: 0;
       margin: 0;
+      margin-bottom: 46px;
+      padding: 0;
       font-size: 14px;
     }
   }

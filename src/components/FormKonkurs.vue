@@ -1,16 +1,37 @@
 <template>
-  <form class="form" @submit.prevent>
+  <form class="form" @submit.prevent novalidate>
     <div class="form__row">
-      <div class="form__fio">
-        <div class="form__input" v-for="item in data.fio" :key="item" >
-          <u-input 
-            :label="`${item.name}`"
-            v-model="item.value"            
-            :placeholder="item.placeholder"
-            :id="`${item.name}`"
-          />      
-        </div>        
-      </div>   
+      <div class="form__fio">        
+              
+          <u-input class="form__input"
+            label="Фамилия:"
+            v-model="review.surname"           
+            placeholder="Укажите фамилию *"
+            id="Фамилия"          
+            :clas="{'invalid': v$.review.surname.$error } "
+            :error="v$.review.surname.$errors"
+          /> 
+        
+        
+               
+          <u-input  class="form__input"
+            label="Имя:"
+            v-model="review.name"           
+            placeholder="Введите ваше имя *"
+            id="Имя" 
+            :clas="{'invalid': v$.review.name.$error} "
+            :error="v$.review.name.$errors"
+
+          />    
+          
+           
+          <u-input  class="form__input"
+            v-model="review.patronymic"    
+            placeholder="Введите почту *"
+            id="Отчество"
+            label="Отчество:" 
+          />    
+        </div>   
       <div class="form__radio_mobile">
         <u-fieldset legend="С каким приложением путешествовали?" class="form__radio">
           <div class="form__radio_item" v-for="item in data.app" :key="item">
@@ -40,10 +61,11 @@
           v-model="review.mail"    
           placeholder="Введите почту *"
           id="mail"
-          label="АДРЕС ПОЧТЫ"          
+          label="АДРЕС ПОЧТЫ" 
+          :clas="{'invalid': v$.review.mail.$error} "
+          :error="v$.review.mail.$errors"
+
         />
-        <span v-for="error in v$.review.mail.$errors" :key="error.$uid">
-        Поле не заполнено</span>
       </div>
       </u-fieldset>   
       <div class="form__progress_mobile">
@@ -67,8 +89,8 @@
       />
     </u-fieldset>
     <div class="form__btn-row">
-      <app-button color="green" @click="createReview"
-        >Отправить форму</app-button>
+      <u-button color="green" @click="createReview"
+        >Отправить форму</u-button>
       <p class="form__btn-text">
         <span>*</span> — обязательные для заполнения поля
       </p>
@@ -77,14 +99,14 @@
       <p class="dialog__title">Ваша заявка отправлена</p>
       <p class="dialog__text">Спасибо за ваше участие, ваша заявка уже поступила к нам. В ближайшее время мы рассмотрим ее и оповестим вас.</p>
       <div class="dialog__btn">
-        <app-button class="dialog__app-btn" color="green" @click="dialogVisible=false">ЗАКРЫТЬ ОКНО</app-button> 
+        <u-button class="dialog__app-btn" color="green" @click="dialogVisible=false">ЗАКРЫТЬ ОКНО</u-button> 
       </div>     
     </app-dialog>
     <app-dialog v-model:show="dialogVisibleError"  class="dialog">
       <p class="dialog__title">Что-то пошло не так!</p>
       <p class="dialog__text">Проверьте поля, выделенные красным, скорее всего вы забыли их заполнить</p>
       <div class="dialog__btn">
-        <app-button class="dialog__app-btn" color="green" @click="dialogVisibleError=false">ОК</app-button>
+        <u-button class="dialog__app-btn" color="green" @click="dialogVisibleError=false">ОК</u-button>
       </div>
 
     </app-dialog>
@@ -93,13 +115,12 @@
 </template>
 
 <script>
-import useVuelidate from '@vuelidate/core'
-import { required, email } from '@vuelidate/validators'
-import UCheckbox from './UI/UCheckbox.vue';
+import { required, helpers, email} from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core'
+const alpha = helpers.regex(/^[a-zA-Zа-яА-Я]*$/)
 
 export default {
   name: 'FormKonkurs',
-  components: {UCheckbox}, 
   props: {
     data: {
       type: Array,
@@ -108,14 +129,11 @@ export default {
   },
   data() {
     return {
-      mail: '',
       v$: useVuelidate(),
-      review: {
-        fio: {
-          surname: "",
-          name: "",
-          patronymic: "",
-        },        
+      review: {        
+        surname: "",
+        name: "",
+        patronymic: "",                
         phone: "",
         mail: "",
         message: "",
@@ -128,26 +146,35 @@ export default {
     };
   },
   validations: {
-    
-      mail: {required},
-      review: {
-        fio: {
-          surname: { required },
-          name: { required },
-          
-        },           
-        mail: { required, email },         
-      },      
+    review: {      
+      surname: { 
+        required: helpers.withMessage('Обязательно для заполнения', required),
+        alpha: helpers.withMessage('В поле не должно быть цифр и других символов', alpha),
+       },
+      name: { 
+        required: helpers.withMessage('Обязательно для заполнения', required),
+        alpha: helpers.withMessage('В поле не должно быть цифр и других символов', alpha),
+       }, 
+      mail: { 
+        required: helpers.withMessage('Обязательно для заполнения', required),
+        email: helpers.withMessage('Вы ввели неверный email', email),
+      },         
+    },      
     
   },
   methods: {
     createReview() {
-      if(!this.review.mail){
+      if(!this.review.mail || !this.review.surname || !this.review.name){
         this.dialogVisibleError= true;
-        this.v$.$touch();        
+        this.v$.$touch();       
       }
-      if(this.review.mail){
+      else{
         this.dialogVisible= true;
+        this.v$.$reset();
+        //очищаем поля формы после отправки
+        this.review.surname='';
+        this.review.name='';
+        this.review.patronymic='';
         this.review.mail='';
         this.review.phone= "";
         this.review.mail= "";
@@ -157,6 +184,13 @@ export default {
       }
     },    
   },
+  computed:{
+    nameErrors(){
+      const errors = [];
+      if(!this.v$.review.surname.required) errors.push('обязательно')
+      return errors;
+    }
+  }
 };
 </script>
 
@@ -164,7 +198,9 @@ export default {
 @import "@/assets/layouts/index.scss";
 
 .form {
-  
+  &__invalid{
+    background: red;
+  }
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -178,13 +214,11 @@ export default {
     row-gap: 70px;
   }
 
-  &__input {
-    margin-bottom: 58px;
+  &__fio {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: row-reverse;
-    gap: 20px;
+    flex-direction: column;
+    
+    gap: 60px;
 
     &:last-child {
       margin-bottom: 0;
@@ -193,7 +227,11 @@ export default {
       margin-right: 20px;
     }
   }
-  
+  &__input{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+  }
   &__radio {    
     &_mobile{
       width: 430px;
@@ -231,6 +269,7 @@ export default {
       display: flex;
       flex-direction: column;
       gap: 20px;
+      
     }
   }
   &__btn-row {
@@ -315,7 +354,9 @@ export default {
       flex-direction: column-reverse;
       align-items: flex-start;
     }
-    
+    &__fio{
+      gap: 0px;
+    }
     &__radio {
       &_mobile{
         background: $grey;
