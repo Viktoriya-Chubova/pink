@@ -8,7 +8,7 @@
 
 <script>
    export default {
-      name: 'app-dialog',
+      name: 'u-dialog',
       props: {
          show: {
             type: Boolean,

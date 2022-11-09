@@ -4,6 +4,7 @@ import UDialog from '@/components/UI/UDialog';
 import UCheckbox from '@/components/UI/UCheckbox';
 import URadio from '@/components/UI/URadio';
 import UFieldset from '@/components/UI/UFieldset';
+import UFile from '@/components/UI/UFile';
 
 export default [
    UButton,
@@ -11,5 +12,6 @@ export default [
    UDialog,
    UCheckbox,
    URadio,
-   UFieldset
+   UFieldset,
+   UFile
 ]

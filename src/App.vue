@@ -5,7 +5,7 @@
       <router-view/>
     </main>
     <Footer :data="FooterData"></Footer>
-  </div>
+  </div> 
   
 </template>
 

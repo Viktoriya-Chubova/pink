@@ -54,7 +54,7 @@ import LogoHeader from "./LogoHeader.vue";
 
 export default {
   name: "Header",
-  props: {
+  props: { 
     data: {
       type: Array,
       default: () => [], //возвращает пустой массив
@@ -78,7 +78,7 @@ export default {
   position: absolute;
   width: 100%;
   z-index: 100;
-  
+  font-size: 18px;
   display: block;
   padding: 27px 0 43px;
   @media screen and (max-width: 479.98px) {

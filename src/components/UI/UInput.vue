@@ -22,14 +22,14 @@
     :value="modelValue"
     @input="updateInput"
     :placeholder="placeholder"
-    :id="id"
+    :id="id" 
   />
 </template>
 
 <script>
 export default {
   name: "u-input",
-  props: {
+  props: { 
     types: {
       type: String,
       default: "text",
@@ -54,8 +54,8 @@ export default {
       default: "",
     },
     clas: {
-      type: String,
-      default: "",
+      type: Object,
+      
     },
     error:{
       type: Array,

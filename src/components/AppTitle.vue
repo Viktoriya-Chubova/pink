@@ -10,7 +10,7 @@
 
 <script>
    export default {
-      
+      name: 'app-title'
    }
 </script>
 
@@ -32,15 +32,12 @@
    @media screen and (max-width: 790px){
       .title{
          padding: 170px 0 74px;
-         
-         
       }
    }
    @media screen and (max-width: 660px){
       .title{
          padding-top: 120px;
          font-size: 40px;
-         
       }
    }
    @media screen and (max-width: 479.98px){
@@ -49,7 +46,7 @@
          line-height: 33px;
          padding: 100px 0 0;
          &__text{
-            padding-bottom: 50px;
+            padding-bottom: 40px;
          }
       }
    }

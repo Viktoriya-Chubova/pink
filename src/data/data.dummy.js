@@ -7,7 +7,7 @@ export const HeaderData = [
    {
       id: 2,
       name: 'Фотографии',
-      path: '/about'
+      path: '/photos'
    },
    {
       id: 3,
@@ -36,7 +36,7 @@ export const FooterData = [
       image: 'youtube',
       path: '#'
    },
-   
+
 ]
 
 export const InformData = [
@@ -61,7 +61,7 @@ export const InformData = [
       text: 'Ставьте лайки, комментируйте, делитесь фотографиями с друзьями и заводите новых',
       viewTablet: true
    },
-   
+
 ]
 export const CarouselData = [
    {
@@ -83,7 +83,7 @@ export const CarouselData = [
       name: 'Николай Петров',
       about: '25 лет, водитель трамвая'
    },
-   
+
 ]
 
 export const TariffData = [
@@ -108,7 +108,7 @@ export const TariffData = [
       standard: 'no',
       anlim: 'yes'
    },
-   
+
 ]
 
 
@@ -116,43 +116,94 @@ export const FormData = {
    app: [
       {
          id: 1,
-         name: 'Pink для iOS'      
+         name: 'Pink для iOS'
       },
       {
          id: 2,
-         name: 'Pink на Android'      
+         name: 'Pink на Android'
       },
       {
          id: 3,
-         name: 'Windows Phone'      
+         name: 'Windows Phone'
       },
    ],
    progress: [
       {
          id: 1,
-         name: 'Сделал селфи с акулой'      
+         name: 'Сделал селфи с акулой'
       },
       {
          id: 2,
-         name: 'Видел Чака Норриса'      
+         name: 'Видел Чака Норриса'
       },
       {
          id: 3,
-         name: 'Удержал башню'      
+         name: 'Удержал башню'
       },
       {
          id: 4,
-         name: 'Обгорел на пляже'      
+         name: 'Обгорел на пляже'
       },
       {
          id: 5,
-         name: 'Накупил сувениров'      
+         name: 'Накупил сувениров'
       },
       {
          id: 6,
-         name: 'Разгромил отель'      
+         name: 'Разгромил отель'
       },
    ]
-   
-     
 }
+
+
+export const PostsPhotoData = [
+   {
+      id: 1,
+      image: 'posts/photo1.jpg',
+      name: 'Левон',
+      text: 'Вчера он на луну летал, сегодня в руки к нам попал.',
+      likes: 356,
+      hasBeenLiked: false
+   },
+   {
+      id: 2,
+      image: 'posts/photo2.jpg',
+      name: 'Антон',
+      text: 'Соседи будут рады!',
+      likes: 666,
+      hasBeenLiked: false
+   },
+   {
+      id: 2,
+      image: 'posts/photo3.jpg',
+      name: 'Борис',
+      text: 'Здесь могла быть ваша цитата о высоком и вечном.',
+      likes: 215,
+      hasBeenLiked: false
+   },
+   {
+      id: 4,
+      image: 'posts/photo4.jpg',
+      name: 'Сергей',
+      text: 'Самая кубанская в мире!',
+      likes: 4,
+      hasBeenLiked: false
+   },
+   {
+      id: 5,
+      image: 'posts/photo5.jpg',
+      name: 'Максим',
+      text: 'Где снег-то?',
+      likes: 150,
+      hasBeenLiked: false
+   },
+   {
+      id: 6,
+      image: 'posts/photo6.jpg',
+      name: 'Надежда',
+      text: 'Всем GM и взаимные лайки!',
+      likes: 2560,
+      hasBeenLiked: false
+   },
+
+]
