@@ -9,8 +9,7 @@
             <li class="navbar__item" v-for="item in data" :key="item">
               <router-link href="" :to="item.path">{{ item.name }}</router-link>
             </li>
-          </ul>
-          
+          </ul>          
         </div>
         <div>
           <div class="burgermenu" @click="show = !show">

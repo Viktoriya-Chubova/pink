@@ -163,7 +163,7 @@ export const PostsPhotoData = [
       name: 'Левон',
       text: 'Вчера он на луну летал, сегодня в руки к нам попал.',
       likes: 356,
-      hasBeenLiked: false
+      time: '2022-10-08T19:02:31+03:00'
    },
    {
       id: 2,
@@ -171,7 +171,7 @@ export const PostsPhotoData = [
       name: 'Антон',
       text: 'Соседи будут рады!',
       likes: 666,
-      hasBeenLiked: false
+      time: '2022-11-01T12:05:31+03:00'
    },
    {
       id: 2,
@@ -179,7 +179,7 @@ export const PostsPhotoData = [
       name: 'Борис',
       text: 'Здесь могла быть ваша цитата о высоком и вечном.',
       likes: 215,
-      hasBeenLiked: false
+      time: '2022-11-08T13:12:31+03:00'
    },
    {
       id: 4,
@@ -187,7 +187,7 @@ export const PostsPhotoData = [
       name: 'Сергей',
       text: 'Самая кубанская в мире!',
       likes: 4,
-      hasBeenLiked: false
+      time: '2022-10-09T19:02:31+03:00'
    },
    {
       id: 5,
@@ -195,7 +195,7 @@ export const PostsPhotoData = [
       name: 'Максим',
       text: 'Где снег-то?',
       likes: 150,
-      hasBeenLiked: false
+      time: '2022-01-08T17:02:31+03:00'
    },
    {
       id: 6,
@@ -203,7 +203,7 @@ export const PostsPhotoData = [
       name: 'Надежда',
       text: 'Всем GM и взаимные лайки!',
       likes: 2560,
-      hasBeenLiked: false
+      time: '2022-11-10T10:49:31+03:00'
    },
 
 ]

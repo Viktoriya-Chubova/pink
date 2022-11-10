@@ -46,7 +46,8 @@ export default {
         name: "",
         text: "",
         image: "",
-        likes:0
+        likes:0,
+        time: Date()
       },
       
     };
@@ -76,7 +77,8 @@ export default {
         name: "",
         text: "",
         image: "",
-        likes:0
+        likes:0,
+        time: Date()
       };
       this.$refs.imgUpload.showPreview = "";
       

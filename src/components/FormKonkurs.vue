@@ -38,8 +38,8 @@
               v-model="review.radioApp"
               :value="item.name"
               :id="`${item.name}`"
+              :label="`${item.name}`"
             ></u-radio>
-            <label :for="`${item.name}`">{{ item.name }}</label>
           </div>
         </u-fieldset>
       </div>
@@ -250,6 +250,7 @@ export default {
     gap: 20px;
   }
   &__radio {
+    
     &_mobile {
       width: 430px;
     }

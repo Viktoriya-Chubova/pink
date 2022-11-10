@@ -45,7 +45,11 @@
    input{
       display: none;
    }  
+   label{
+      cursor: pointer;
+   }
    label:before {
+      cursor: pointer;
       content: " ";
       display: inline-block;
       margin-right: 22px;
