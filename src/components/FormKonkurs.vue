@@ -328,6 +328,7 @@ export default {
   .form {
     &__fio {
       width: 100%;
+      padding-right: 30px;
     }
     &__radio {
       &_mobile {

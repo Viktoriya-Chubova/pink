@@ -4,8 +4,7 @@
          <div class="form__col">
             <u-input
                class="form__input"
-               v-model="post.name"
-               
+               v-model="post.name"               
                placeholder="Укажите ваше имя"
                id="Имя"
                :clas="{ invalid: v$.post.name.$error }"
@@ -28,7 +27,9 @@
             />
          </div>
       </div>
-      <u-button color="green" @click="createPost">Отправить</u-button>
+      <div >
+        <u-button class="form__btn" color="green" @click="createPost">Отправить</u-button>
+      </div>
    </form>
   
 </template>
@@ -47,7 +48,7 @@ export default {
         text: "",
         image: "",
         likes:0,
-        time: Date()
+        time: null
       },
       
     };
@@ -71,6 +72,7 @@ export default {
       this.$emit('showForm',)
       this.v$.$reset();
       this.post.id = Date.now();
+      this.post.time = new Date();
       this.$emit("create", this.post);
       this.$emit('toggle-button');
       this.post = {
@@ -78,7 +80,7 @@ export default {
         text: "",
         image: "",
         likes:0,
-        time: Date()
+        time: null
       };
       this.$refs.imgUpload.showPreview = "";
       
@@ -100,11 +102,13 @@ export default {
 
 <style lang="scss" scoped>
 .form {
-   padding: 40px;
+  padding: 40px 20px;
    &__row{
       display: flex;
       justify-content: space-around;
       align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
       margin-bottom: 30px;
    }
    &__input{
@@ -117,5 +121,13 @@ export default {
   &__imagePreview {
     width: 100px;
   }
+}
+@media screen and (max-width: 479.98px){
+.form{
+  
+  &__btn{
+    width: 100%;
+  }
+}
 }
 </style>

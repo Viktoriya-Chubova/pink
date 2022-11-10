@@ -126,7 +126,6 @@ export default {
     position:absolute;
     top: 55px;
     @media screen and (max-width: 479.98px){
-      top: 93px;
       width: 100%;
     }
   }

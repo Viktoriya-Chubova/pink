@@ -1,20 +1,23 @@
 <template>
   <div v-if="types !== 'textarea'" class="input">
-      <input      
-        :value="modelValue"
-        @input="updateInput"
-        class="input__text"
-        :type="`${types}`"
-        :placeholder="placeholder"
-        :id="id"
-        :class="clas"
-      />
+      <div class="input__row">
+        <input      
+          :value="modelValue"
+          @input="updateInput"
+          class="input__text"
+          :type="`${types}`"
+          :placeholder="placeholder"
+          :id="id"
+          :class="clas"
+        />
+        <TransitionGroup>
+          <div class="input__error" v-for="element in error" :key="element.$uid">
+            <div>{{element.$message}}</div>
+          </div>   
+      </TransitionGroup>
+      </div>
     <label  :for="id" class="input__label">{{ label }}</label>    
-   <TransitionGroup>
-      <div class="input__error" v-for="element in error" :key="element.$uid">
-        <div>{{element.$message}}</div>
-      </div>   
-   </TransitionGroup>
+  
   </div>
   <textarea
     class="textarea"
@@ -79,11 +82,16 @@ export default {
   flex-direction: column;
   align-items: center;
   align-items: flex-start;
-  position: relative;
+  &__row{
+    width: 336px;
+    @media screen and (max-width: 950px){
+      width: 100%;
+      
+    }
+  }
   &__text {
     width: 336px;
-    font-size: 18px;
-    
+    font-size: 18px;    
     color: $darkblue;
     border: 2px solid #e5e5e5;
     border-radius: 1px;
@@ -95,11 +103,21 @@ export default {
       outline: none;
       border: 2px solid $pink;
     }
-    
     @media screen and (max-width: 950px){
       width: 100%;
     }
-
+  }
+  &__error {
+    width: 100%;
+    background: rgb(218, 116, 116);
+    margin-top: 4px;
+    border-radius: 7px;
+    font-size: 13px;
+    color: #fff;
+    padding: 5px;
+    @media screen and (max-width: 479.98px){
+      width: 100%;
+    }
   }
   &__label{
     color: $pink;
@@ -109,21 +127,6 @@ export default {
     margin-top: 20px;
     @media screen and (max-width: 479.98px){
       margin-top: 0;
-    }
-  }
-  &__error {
-    width: 336px;
-    background: rgb(218, 116, 116);
-    margin-top: 4px;
-    border-radius: 7px;
-    font-size: 13px;
-    color: #fff;
-    padding: 5px;
-    position:absolute;
-    top: 55px;
-    @media screen and (max-width: 479.98px){
-      top: 93px;
-      width: 100%;
     }
   }
 }
